@@ -1,0 +1,11 @@
+msgid ""
+msgstr ""
+"Language: en\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#: src/components/AppToolbar.vue:5
+msgid "NoryArt admin"
+msgstr "NoryArt admin"
+
+#~ msgid "Name"
+#~ msgstr "N"

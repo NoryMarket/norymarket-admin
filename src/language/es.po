@@ -6,3 +6,7 @@ msgstr ""
 #: src/components/AppToolbar.vue:5
 msgid "NoryArt admin"
 msgstr "Administracion NoryArt"
+
+#: src/components/LeftSidebar.vue:4
+msgid "Sections"
+msgstr ""

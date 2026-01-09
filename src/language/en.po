@@ -7,5 +7,9 @@ msgstr ""
 msgid "NoryArt admin"
 msgstr "NoryArt admin"
 
+#: src/components/LeftSidebar.vue:4
+msgid "Sections"
+msgstr ""
+
 #~ msgid "Name"
 #~ msgstr "N"

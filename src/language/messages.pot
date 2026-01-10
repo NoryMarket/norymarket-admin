@@ -18,16 +18,25 @@ msgstr ""
 msgid "Sign out"
 msgstr ""
 
+#: src/components/UserForm.vue:6
+msgid "Update user"
+msgstr ""
+
+#: src/components/UserForm.vue:6
+msgid "Create user"
+msgstr ""
+
+#: src/components/UserForm.vue:10
+#: src/layouts/LoginLayout.vue:14
+msgid "Email"
+msgstr ""
+
 #: src/layouts/LoginLayout.vue:8
 msgid "Nory Art"
 msgstr ""
 
 #: src/layouts/LoginLayout.vue:11
 msgid "Sign in below to access your account"
-msgstr ""
-
-#: src/layouts/LoginLayout.vue:14
-msgid "Email"
 msgstr ""
 
 #: src/layouts/LoginLayout.vue:15

@@ -19,6 +19,18 @@ msgstr "Secciones"
 msgid "Sign out"
 msgstr "Salir"
 
+#: src/components/UserForm.vue:6
+msgid "Update user"
+msgstr ""
+
+#: src/components/UserForm.vue:6
+msgid "Create user"
+msgstr ""
+
+#: src/components/UserForm.vue:10 src/layouts/LoginLayout.vue:14
+msgid "Email"
+msgstr "Correo"
+
 #: src/layouts/LoginLayout.vue:8
 #, fuzzy
 msgid "Nory Art"
@@ -27,10 +39,6 @@ msgstr "Administración NoryArt"
 #: src/layouts/LoginLayout.vue:11
 msgid "Sign in below to access your account"
 msgstr "Introduzca sus datos debajo para acceder a su cuenta"
-
-#: src/layouts/LoginLayout.vue:14
-msgid "Email"
-msgstr "Correo"
 
 #: src/layouts/LoginLayout.vue:15
 msgid "Password"

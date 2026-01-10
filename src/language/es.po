@@ -11,7 +11,7 @@ msgstr "Administración"
 msgid "Welcome %{name}"
 msgstr "Bienvenido(a) %{name}"
 
-#: src/components/LeftSidebar.vue:13
+#: src/components/LeftSidebar.vue:15
 msgid "Sections"
 msgstr "Secciones"
 

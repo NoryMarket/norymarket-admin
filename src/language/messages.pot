@@ -10,7 +10,7 @@ msgstr ""
 msgid "Welcome %{name}"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:13
+#: src/components/LeftSidebar.vue:15
 msgid "Sections"
 msgstr ""
 

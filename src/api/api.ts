@@ -25,6 +25,35 @@ export interface CreateUserDTO {
   role: string;
 }
 
+export interface RoleDTO {
+  id: string;
+  name: string;
+  permissions: (
+    | "users"
+    | "supply-type"
+    | "supply"
+    | "bom"
+    | "orders"
+    | "dashboard"
+    | "enums"
+    | "currency-exchange"
+  )[];
+}
+
+export interface AuthorizationMetaDTO {
+  permissions: (
+    | "users"
+    | "supply-type"
+    | "supply"
+    | "bom"
+    | "orders"
+    | "dashboard"
+    | "enums"
+    | "currency-exchange"
+  )[];
+  roles: RoleDTO[];
+}
+
 export type QueryParamsType = Record<string | number, any>;
 export type ResponseFormat = keyof Omit<Body, "body" | "bodyUsed">;
 
@@ -353,6 +382,21 @@ export class Api<
       this.request<UserDTO, any>({
         path: `/auth/user/status/${userId}/${status}`,
         method: "PATCH",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Auth
+     * @name AuthControllerGetAuthorizationMeta
+     * @request GET:/auth/authorization/meta
+     */
+    authControllerGetAuthorizationMeta: (params: RequestParams = {}) =>
+      this.request<AuthorizationMetaDTO, any>({
+        path: `/auth/authorization/meta`,
+        method: "GET",
         format: "json",
         ...params,
       }),

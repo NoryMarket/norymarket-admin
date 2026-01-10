@@ -2,10 +2,46 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
-#: src/components/AppToolbar.vue:5
-msgid "NoryArt admin"
+#: src/components/AppToolbar.vue:6
+msgid "Admin"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:4
+#: src/components/AppToolbar.vue:8
+msgid "Welcome %{name}"
+msgstr ""
+
+#: src/components/LeftSidebar.vue:13
 msgid "Sections"
+msgstr ""
+
+#: src/components/LogoutButton.vue:5
+msgid "Sign out"
+msgstr ""
+
+#: src/layouts/LoginLayout.vue:8
+msgid "Nory Art"
+msgstr ""
+
+#: src/layouts/LoginLayout.vue:11
+msgid "Sign in below to access your account"
+msgstr ""
+
+#: src/layouts/LoginLayout.vue:14
+msgid "Email"
+msgstr ""
+
+#: src/layouts/LoginLayout.vue:15
+msgid "Password"
+msgstr ""
+
+#: src/layouts/LoginLayout.vue:19
+msgid "Sign in"
+msgstr ""
+
+#: src/layouts/LoginLayout.vue:41
+msgid "Invalid credentials"
+msgstr ""
+
+#: src/layouts/LoginLayout.vue:61
+msgid "Authentication failed"
 msgstr ""

@@ -1,11 +1,11 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated><AppToolbar /> </q-header>
+  <QLayout view="lHh Lpr lFf">
+    <QHeader elevated><AppToolbar /> </QHeader>
     <LeftSidebar />
-    <q-page-container>
+    <QPageContainer>
       <router-view />
-    </q-page-container>
-  </q-layout>
+    </QPageContainer>
+  </QLayout>
 </template>
 
 <script setup lang="ts">

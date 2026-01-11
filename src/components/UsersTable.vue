@@ -1,6 +1,6 @@
 <template>
   <QTable
-    :title="_('Users')"
+    :title="$gettext('Users')"
     :rows="users.users"
     :columns="columns"
     class="full-height full-width"
@@ -19,11 +19,11 @@
     </template>
     <template v-slot:top>
       <div class="column q-gutter-md">
-        <label class="q-table__title">{{ _('Users') }}</label>
+        <label class="q-table__title">{{ $gettext('Users') }}</label>
         <div class="row q-gutter-md">
-          <QBtn :label="_('Create new user')" @click="createUser = true" />
+          <QBtn :label="$gettext('Create new user')" @click="createUser = true" />
           <QBtn
-            :label="_('Update user')"
+            :label="$gettext('Update user')"
             :disable="selected.length !== 1"
             @click="updateUser = selected[0]! as UserDTO"
           />
@@ -81,7 +81,7 @@ import { safeRequest } from 'src/utils/safeRequest';
 import { useApi } from 'src/composables/useApi';
 import { useRoles } from 'src/stores/roles';
 
-const { $gettext: _ } = useGettext();
+const { $gettext } = useGettext();
 const users = useUsers();
 const selected = ref([]);
 const createUser = ref(false);
@@ -93,23 +93,23 @@ const roles = useRoles();
 const columns: QTableColumn<UserDTO>[] = [
   {
     name: 'active',
-    label: _('Is active'),
+    label: $gettext('Is active'),
     field: 'active',
   },
   {
     name: 'email',
-    label: _('Email'),
+    label: $gettext('Email'),
     field: 'email',
   },
   {
     name: 'role',
-    label: _('Rol'),
+    label: $gettext('Rol'),
     field: 'role',
     format: (roleId) => roles.roles?.find(({ id }) => id === roleId)?.name ?? roleId,
   },
   {
     name: 'lastSignInAt',
-    label: _('Last sign in at'),
+    label: $gettext('Last sign in at'),
     field: 'lastSignInAt',
     format: (date) => (!date ? '' : moment(date).fromNow()),
   },

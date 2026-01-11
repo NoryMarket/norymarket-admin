@@ -19,15 +19,16 @@ msgstr "Secciones"
 msgid "Sign out"
 msgstr "Salir"
 
-#: src/components/UserForm.vue:6
+#: src/components/UserForm.vue:6 src/components/UsersTable.vue:26
 msgid "Update user"
-msgstr "Mdificar usuario"
+msgstr "Modificar usuario"
 
 #: src/components/UserForm.vue:6
 msgid "Create user"
 msgstr "Crear usuario"
 
-#: src/components/UserForm.vue:10 src/layouts/LoginLayout.vue:14
+#: src/components/UserForm.vue:10 src/components/UsersTable.vue:101
+#: src/layouts/LoginLayout.vue:14
 msgid "Email"
 msgstr "Correo"
 
@@ -51,6 +52,15 @@ msgstr "Cancelar"
 msgid "Confirm"
 msgstr "Confirmar"
 
+#: src/components/UsersTable.vue:3 src/components/UsersTable.vue:22
+msgid "Users"
+msgstr "Usuarios"
+
+#: src/components/UsersTable.vue:24
+#, fuzzy
+msgid "Create new user"
+msgstr "Crear nuevo usuario"
+
 #: src/components/UsersTable.vue:31
 msgid "Delete user"
 msgid_plural "Delete users"
@@ -62,6 +72,19 @@ msgid "Are you sure you want to delete %{count} user"
 msgid_plural "Are you sure you want to delete %{count} users"
 msgstr[0] "Está seguro de eliminar %{count} usuario"
 msgstr[1] "Está seguro de eliminar %{count} usuarios"
+
+#: src/components/UsersTable.vue:96
+msgid "Is active"
+msgstr "Está activo"
+
+#: src/components/UsersTable.vue:106
+#, fuzzy
+msgid "Rol"
+msgstr "Rol"
+
+#: src/components/UsersTable.vue:112
+msgid "Last sign in at"
+msgstr "Último acceso"
 
 #: src/layouts/LoginLayout.vue:8
 #, fuzzy

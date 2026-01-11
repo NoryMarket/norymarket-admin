@@ -16,17 +16,15 @@
           option-label="name"
           emit-value
         />
-        <QInput
+        <PasswordInput
           v-if="!$props.user"
           :label="$gettext('Password')"
           v-model="userInfo.password"
-          type="password"
         />
-        <QInput
+        <PasswordInput
           v-if="!$props.user"
           :label="$gettext('Confirm password')"
           v-model="confirmPassword"
-          type="password"
         />
       </QCardSection>
       <QCardActions align="right">
@@ -49,6 +47,7 @@ import { useRoles } from 'src/stores/roles';
 import { useUsers } from 'src/stores/users';
 import { safeRequest } from 'src/utils/safeRequest';
 import { reactive, ref, watch } from 'vue';
+import PasswordInput from './PasswordInput.vue';
 
 type UserInfo = {
   email: string;

@@ -30,7 +30,7 @@ export default defineConfig((/* ctx */) => {
       'material-icons', // optional, you are not bound to it
     ],
 
-    // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#build
+    // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-˜file#build
     build: {
       target: {
         browser: ['es2022', 'firefox115', 'chrome115', 'safari14'],

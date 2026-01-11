@@ -42,16 +42,16 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: src/components/UserForm.vue:27
+#: src/components/UserForm.vue:26
 msgid "Confirm password"
 msgstr ""
 
-#: src/components/UserForm.vue:33
+#: src/components/UserForm.vue:31
 #: src/components/UsersTable.vue:63
 msgid "Cancel"
 msgstr ""
 
-#: src/components/UserForm.vue:37
+#: src/components/UserForm.vue:35
 #: src/components/UsersTable.vue:66
 msgid "Confirm"
 msgstr ""
@@ -101,10 +101,10 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: src/layouts/LoginLayout.vue:41
+#: src/layouts/LoginLayout.vue:42
 msgid "Invalid credentials"
 msgstr ""
 
-#: src/layouts/LoginLayout.vue:61
+#: src/layouts/LoginLayout.vue:62
 msgid "Authentication failed"
 msgstr ""

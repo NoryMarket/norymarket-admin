@@ -15,6 +15,8 @@ const roles = useRoles();
 const supabase = useSupabase();
 
 const allowed = computed(() => {
+  console.log('IfPermission checking permission:', permission, supabase.user, roles.roles);
+  //return true; // Temporary allow all access while permissions are being configured
   const currentRole = roles.roles?.find(({ id }) => supabase.user?.role === id);
 
   if (!currentRole) return false;

@@ -99,7 +99,7 @@ export default defineConfig((/* ctx */) => {
 
       // Quasar plugins
       plugins: [],
-      autoImportComponentCase: 'pascal',
+      autoImportComponentCase: 'combined',
     },
 
     // animations: 'all', // --- includes all animations

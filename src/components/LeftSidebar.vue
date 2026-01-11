@@ -2,9 +2,9 @@
   <QDrawer v-model="config.isLeftSidebarOpen" show-if-above bordered>
     <QList class="full-height column">
       <IfPermission permission="dashboard"><QItem to="/index">Index</QItem></IfPermission>
-      <!-- <IfPermission permission="users"> -->
-      <QItem to="/users">Users</QItem>
-      <!-- </IfPermission> -->
+      <IfPermission permission="users">
+        <QItem to="/users">Users</QItem>
+      </IfPermission>
       <IfPermission permission="enums"><QItem to="/enums">Enums</QItem></IfPermission>
 
       <QSpace />

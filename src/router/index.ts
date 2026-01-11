@@ -7,6 +7,7 @@ import {
 } from 'vue-router';
 import routes from './routes';
 import { useSupabase } from 'src/stores/supabase';
+import { useRoles } from 'src/stores/roles';
 
 /*
  * If not building with SSR mode, you can
@@ -34,8 +35,9 @@ export default defineRouter(function (/* { store, ssrContext } */) {
     history: createHistory(process.env.VUE_ROUTER_BASE),
   });
 
-  Router.beforeEach(async (to) => {
+  Router.beforeEach(async (to, from) => {
     const supabase = useSupabase();
+    const roles = useRoles();
 
     if (!supabase.ready) {
       await supabase.init();
@@ -49,6 +51,24 @@ export default defineRouter(function (/* { store, ssrContext } */) {
           from: to.path,
         },
       };
+    }
+
+    if (to.meta.permission) {
+      const userRole = supabase.user?.role;
+      if (!roles.ready) await roles.loadRoles();
+      const rolePermissions = roles.roles?.find(({ id }) => id === userRole)?.permissions ?? [];
+
+      if (!rolePermissions.some((permission) => permission === to.meta.permission)) {
+        return from.fullPath
+          ? {
+              path: from.fullPath,
+              replace: true,
+            }
+          : {
+              path: '/',
+              replace: true,
+            };
+      }
     }
   });
 

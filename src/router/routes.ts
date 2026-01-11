@@ -1,3 +1,4 @@
+import type { Permissions } from 'src/stores/roles';
 import type { RouteRecordRaw } from 'vue-router';
 
 const routes: RouteRecordRaw[] = [
@@ -6,8 +7,16 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: 'index', component: () => import('pages/IndexPage.vue') },
-      { path: 'users', component: () => import('pages/UsersPage.vue') },
-      { path: 'enums', component: () => import('pages/EnumsPage.vue') },
+      {
+        path: 'users',
+        meta: { permission: 'users' as Permissions },
+        component: () => import('pages/UsersPage.vue'),
+      },
+      {
+        path: 'enums',
+        meta: { permission: 'enums' as Permissions },
+        component: () => import('pages/EnumsPage.vue'),
+      },
     ],
   },
   {

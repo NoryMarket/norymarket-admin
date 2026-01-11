@@ -13,7 +13,7 @@ msgstr "Welcome %{name}"
 
 #: src/components/LeftSidebar.vue:15
 msgid "Sections"
-msgstr ""
+msgstr "Sections"
 
 #: src/components/LogoutButton.vue:5
 msgid "Sign out"
@@ -21,11 +21,11 @@ msgstr "Sign out"
 
 #: src/components/UserForm.vue:6
 msgid "Update user"
-msgstr ""
+msgstr "Update user"
 
 #: src/components/UserForm.vue:6
 msgid "Create user"
-msgstr ""
+msgstr "Create user"
 
 #: src/components/UserForm.vue:10 src/layouts/LoginLayout.vue:14
 msgid "Email"
@@ -33,7 +33,7 @@ msgstr "Email"
 
 #: src/components/UserForm.vue:13
 msgid "Role"
-msgstr ""
+msgstr "Role"
 
 #: src/components/UserForm.vue:21 src/layouts/LoginLayout.vue:15
 msgid "Password"
@@ -41,27 +41,27 @@ msgstr "Password"
 
 #: src/components/UserForm.vue:27
 msgid "Confirm password"
-msgstr ""
+msgstr "Confirm password"
 
 #: src/components/UserForm.vue:33 src/components/UsersTable.vue:63
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel"
 
 #: src/components/UserForm.vue:37 src/components/UsersTable.vue:66
 msgid "Confirm"
-msgstr ""
+msgstr "Confirm"
 
 #: src/components/UsersTable.vue:31
 msgid "Delete user"
 msgid_plural "Delete users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Delete user"
+msgstr[1] "Delete users"
 
 #: src/components/UsersTable.vue:49
 msgid "Are you sure you want to delete %{count} user"
 msgid_plural "Are you sure you want to delete %{count} users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Are you sure you want to delete %{count} user"
+msgstr[1] "Are you sure you want to delete %{count} users"
 
 #: src/layouts/LoginLayout.vue:8
 #, fuzzy

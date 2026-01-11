@@ -31,16 +31,47 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
+#: src/components/UserForm.vue:13
+msgid "Role"
+msgstr ""
+
+#: src/components/UserForm.vue:21
+#: src/layouts/LoginLayout.vue:15
+msgid "Password"
+msgstr ""
+
+#: src/components/UserForm.vue:27
+msgid "Confirm password"
+msgstr ""
+
+#: src/components/UserForm.vue:33
+#: src/components/UsersTable.vue:63
+msgid "Cancel"
+msgstr ""
+
+#: src/components/UserForm.vue:37
+#: src/components/UsersTable.vue:66
+msgid "Confirm"
+msgstr ""
+
+#: src/components/UsersTable.vue:31
+msgid "Delete user"
+msgid_plural "Delete users"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/components/UsersTable.vue:49
+msgid "Are you sure you want to delete %{count} user"
+msgid_plural "Are you sure you want to delete %{count} users"
+msgstr[0] ""
+msgstr[1] ""
+
 #: src/layouts/LoginLayout.vue:8
 msgid "Nory Art"
 msgstr ""
 
 #: src/layouts/LoginLayout.vue:11
 msgid "Sign in below to access your account"
-msgstr ""
-
-#: src/layouts/LoginLayout.vue:15
-msgid "Password"
 msgstr ""
 
 #: src/layouts/LoginLayout.vue:19

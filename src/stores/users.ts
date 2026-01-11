@@ -45,5 +45,25 @@ export const useUsers = defineStore('users', () => {
     void loadUsers();
   });
 
-  return { users, loading, loadUsers, setUserActiveStatus };
+  return {
+    users,
+    loading,
+    loadUsers,
+    setUserActiveStatus,
+    push: (user: UserDTO) => {
+      users.value.unshift(user);
+    },
+    delete: (usersIds: string[]) => {
+      const set = new Set(usersIds);
+      users.value = users.value.filter(({ id }) => !set.has(id));
+    },
+    update: (updateUser: UserDTO) => {
+      const user = users.value.find(({ id }) => id === updateUser.id);
+
+      if (!user) return;
+
+      user.email = updateUser.email;
+      user.role = updateUser.role;
+    },
+  };
 });

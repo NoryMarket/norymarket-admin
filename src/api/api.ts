@@ -25,6 +25,13 @@ export interface CreateUserDTO {
   role: string;
 }
 
+export interface UpdateUserDTO {
+  email: string;
+  role: string;
+}
+
+export type DeleteUserDTO = object;
+
 export interface RoleDTO {
   id: string;
   name: string;
@@ -337,6 +344,26 @@ export class Api<
      * No description
      *
      * @tags Auth
+     * @name AuthControllerDeleteUser
+     * @request DELETE:/auth/users
+     */
+    authControllerDeleteUser: (
+      data: DeleteUserDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<any[], any>({
+        path: `/auth/users`,
+        method: "DELETE",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Auth
      * @name AuthControllerCreateUser
      * @request POST:/auth/user
      */
@@ -357,13 +384,20 @@ export class Api<
      * No description
      *
      * @tags Auth
-     * @name AuthControllerDeleteUser
-     * @request DELETE:/auth/user/{userId}
+     * @name AuthControllerUpdateUser
+     * @request PATCH:/auth/user/{userId}
      */
-    authControllerDeleteUser: (userId: string, params: RequestParams = {}) =>
-      this.request<void, any>({
+    authControllerUpdateUser: (
+      userId: string,
+      data: UpdateUserDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<UserDTO, any>({
         path: `/auth/user/${userId}`,
-        method: "DELETE",
+        method: "PATCH",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
         ...params,
       }),
 

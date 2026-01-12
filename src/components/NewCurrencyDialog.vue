@@ -1,10 +1,10 @@
-<!-- src/components/currency/NewCurrencyDialog.vue -->
+<!-- src/components/currency/CurrencyDialog.vue -->
 <template>
   <q-dialog v-model="model" persistent>
     <q-card class="dialog-card">
       <!-- Header -->
       <q-card-section class="row items-center q-py-md">
-        <div class="text-h6">Nueva Moneda</div>
+        <div class="text-h6">{{ isEdit ? 'Editar moneda' : 'Nueva Moneda' }}</div>
         <q-space />
         <q-btn flat round dense icon="close" @click="onCancel" />
       </q-card-section>
@@ -16,14 +16,14 @@
         <div class="field-block">
           <div class="text-subtitle2 q-mb-xs">Código ISO</div>
           <q-input
-            v-model.trim="form.code"
+            v-model.trim="form.shortName"
             outlined
             dense
             maxlength="3"
             counter
             placeholder="USD"
-            :rules="codeRules"
-            @update:model-value="onCodeInput"
+            :rules="shortNameRules"
+            @update:model-value="onShortNameInput"
           />
           <div class="text-caption text-grey-7 q-mt-xs">3 letras (ej: USD, EUR, CUP)</div>
         </div>
@@ -51,6 +51,7 @@
           />
         </div>
 
+        <!-- Si tu backend NO usa symbolPosition, puedes borrar este bloque -->
         <div class="field-block">
           <div class="text-subtitle2 q-mb-sm">Posición del símbolo</div>
           <q-option-group
@@ -80,7 +81,7 @@
         <q-btn
           color="primary"
           no-caps
-          label="Guardar cambios"
+          :label="isEdit ? 'Guardar cambios' : 'Guardar cambios'"
           :loading="saving"
           :disable="!isValid"
           @click="onSave"
@@ -91,14 +92,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive, ref, watch } from 'vue';
+import { computed, reactive, watch } from 'vue';
 import { useCurrencies } from 'src/stores/currencies';
-import type { CreateCurrencyTypeDTO } from 'src/api/api';
+import type { CreateCurrencyTypeDTO, CurrencyTypeDTO, UpdateCurrencyTypeDTO } from 'src/api/api';
 
 type SymbolPosition = 'BEFORE' | 'AFTER';
 
-type NewCurrencyForm = {
-  code: string;
+type CurrencyForm = {
+  shortName: string;
   name: string;
   symbol: string;
   symbolPosition: SymbolPosition;
@@ -106,14 +107,19 @@ type NewCurrencyForm = {
 };
 
 type Props = {
-  /** Control externo del dialog */
   modelValue: boolean;
+
+  currency?: CurrencyTypeDTO | null;
 };
 
-const props = defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+  currency: null,
+});
+
 const emit = defineEmits<{
   (e: 'update:modelValue', v: boolean): void;
   (e: 'created'): void;
+  (e: 'updated'): void;
 }>();
 
 const store = useCurrencies();
@@ -123,11 +129,12 @@ const model = computed({
   set: (v: boolean) => emit('update:modelValue', v),
 });
 
-const saving = computed(() => store.creatingCurrency);
+const isEdit = computed(() => !!props.currency);
+const saving = computed(() => store.creatingCurrency || store.updatingCurrency);
 
 // Form state
-const form = reactive<NewCurrencyForm>({
-  code: '',
+const form = reactive<CurrencyForm>({
+  shortName: '',
   name: '',
   symbol: '',
   symbolPosition: 'BEFORE',
@@ -149,34 +156,47 @@ const decimalOptions = [
 
 // Rules
 const requiredRules = [(v: string) => !!(v ?? '').trim() || 'Requerido'];
-const codeRules = [
+const shortNameRules = [
   (v: string) => !!(v ?? '').trim() || 'Requerido',
   (v: string) => (v ?? '').trim().length === 3 || 'Debe tener 3 letras',
   (v: string) => /^[A-Z]{3}$/.test((v ?? '').trim()) || 'Solo letras A-Z (mayúsculas)',
 ];
 
-// Keep ISO code uppercase and letters only
-function onCodeInput(v: string | number | null) {
+// Keep ISO shortName uppercase and letters only
+function onShortNameInput(v: string | number | null) {
   const s = String(v ?? '')
     .toUpperCase()
     .replace(/[^A-Z]/g, '')
     .slice(0, 3);
-  form.code = s;
+  form.shortName = s;
 }
 
 const isValid = computed(() => {
-  const code = form.code.trim();
+  const shortName = form.shortName.trim();
   const name = form.name.trim();
   const symbol = form.symbol.trim();
-  return /^[A-Z]{3}$/.test(code) && name.length > 0 && symbol.length > 0;
+  return /^[A-Z]{3}$/.test(shortName) && name.length > 0 && symbol.length > 0;
 });
 
-function resetForm() {
-  form.code = '';
-  form.name = '';
-  form.symbol = '';
+function hydrateFromCurrency(c: CurrencyTypeDTO) {
+  form.shortName = (c.shortName ?? '').toUpperCase();
+  form.name = c.name ?? '';
+  form.symbol = c.symbol ?? '';
+  form.decimals = c.decimals ?? 2;
+
   form.symbolPosition = 'BEFORE';
-  form.decimals = 2;
+}
+
+function resetForm() {
+  if (props.currency) {
+    hydrateFromCurrency(props.currency);
+  } else {
+    form.shortName = '';
+    form.name = '';
+    form.symbol = '';
+    form.symbolPosition = 'BEFORE';
+    form.decimals = 2;
+  }
 }
 
 function onCancel() {
@@ -186,27 +206,53 @@ function onCancel() {
 async function onSave() {
   if (!isValid.value) return;
 
-  const payload: CreateCurrencyTypeDTO = {
-    shortName: form.code.trim(),
+  if (!isEdit.value) {
+    // CREATE
+    const payload: CreateCurrencyTypeDTO = {
+      shortName: form.shortName.trim(),
+      name: form.name.trim(),
+      symbol: form.symbol.trim(),
+      decimals: form.decimals,
+    };
+
+    const res = await store.createCurrency(payload);
+    if (!res?.ok) return;
+
+    emit('created');
+    model.value = false;
+    return;
+  }
+
+  // UPDATE
+  if (!props.currency) return;
+
+  const payload: UpdateCurrencyTypeDTO = {
+    shortName: form.shortName.trim(),
     name: form.name.trim(),
     symbol: form.symbol.trim(),
-    //symbolPosition: form.symbolPosition,
     decimals: form.decimals,
   };
 
-  const res = await store.createCurrency(payload as any);
+  const res = await store.updateCurrency(props.currency.id, payload);
   if (!res?.ok) return;
 
-  emit('created');
+  emit('updated');
   model.value = false;
-  resetForm();
 }
 
-// Reset when dialog closes
+// Init when opens
 watch(
   () => model.value,
   (open) => {
-    if (!open) resetForm();
+    if (open) resetForm();
+  },
+);
+
+// If record changes while open
+watch(
+  () => props.currency,
+  () => {
+    if (model.value) resetForm();
   },
 );
 </script>
@@ -216,7 +262,6 @@ watch(
   width: 820px;
   max-width: 92vw;
 }
-
 .field-block {
   margin-bottom: 22px;
 }

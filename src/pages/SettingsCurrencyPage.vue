@@ -76,7 +76,8 @@
 
           <template #body-cell-actions="props">
             <q-td :props="props" class="text-right">
-              <q-btn flat dense round icon="edit" @click="onEditCurrency(props.row)" />
+              <q-btn flat dense round icon="edit" @click="onEditCurrency()" />
+              <NewCurrencyDialog v-model="openEditCurrencyDialog" :currency="props.row" />
               <q-btn
                 v-if="props.row.shortName !== primaryCurrencyCode"
                 flat
@@ -174,6 +175,7 @@ const supabase = useSupabase();
 const user = supabase.user;
 
 const openNewCurrencyDialog = ref(false);
+const openEditCurrencyDialog = ref(false);
 const openNewExchangeRateDialog = ref(false);
 
 const primaryCurrencyCode = ref<string>(primaryCurrencyShortName ?? 'CUP');
@@ -222,8 +224,9 @@ function onAddCurrency() {
 function onCurrencyCreated() {
   console.log('Currency created');
 }
-function onEditCurrency(row: Currency) {
-  console.log('Edit currency', row);
+function onEditCurrency() {
+  openEditCurrencyDialog.value = true;
+  console.log('Edit currency');
 }
 function onDeleteCurrency(row: Currency) {
   console.log('Delete currency', row);

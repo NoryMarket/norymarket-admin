@@ -53,7 +53,7 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: 'settings/general',
-        meta: { permission: 'enum' as Permissions },
+        meta: { permission: 'enums' as Permissions },
         component: () => import('pages/SettingsGeneralPage.vue'),
       },
       {
@@ -63,18 +63,18 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: 'settings/quantity-unit',
-        meta: { permission: 'enum' as Permissions },
+        meta: { permission: 'enums' as Permissions },
         component: () => import('pages/SettingsQuantityUnitPage.vue'),
       },
 
       {
         path: 'settings/sizes',
-        meta: { permission: 'enum' as Permissions },
+        meta: { permission: 'enums' as Permissions },
         component: () => import('pages/SettingsSizesPage.vue'),
       },
       {
         path: 'settings/colors',
-        meta: { permission: 'enum' as Permissions },
+        meta: { permission: 'enums' as Permissions },
         component: () => import('pages/SettingsColorsPage.vue'),
       },
       {

@@ -18,51 +18,51 @@ msgstr ""
 msgid "Ordenes"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:40
+#: src/components/LeftSidebar.vue:43
 msgid "Producción"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:44
+#: src/components/LeftSidebar.vue:49
 msgid "Ordenes de Producción"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:50
+#: src/components/LeftSidebar.vue:55
 msgid "Recetas (BOM)"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:56
+#: src/components/LeftSidebar.vue:61
 msgid "Merma"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:65
+#: src/components/LeftSidebar.vue:70
 msgid "INVENTARIO"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:73
+#: src/components/LeftSidebar.vue:78
 msgid "Stock"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:82
+#: src/components/LeftSidebar.vue:87
 msgid "Tipos de Insumo"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:91
+#: src/components/LeftSidebar.vue:96
 msgid "Pérdidas"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:98
+#: src/components/LeftSidebar.vue:103
 msgid "CATALOGO"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:106
+#: src/components/LeftSidebar.vue:111
 msgid "Productos"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:121
+#: src/components/LeftSidebar.vue:126
 msgid "Configuración"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:132
+#: src/components/LeftSidebar.vue:137
 msgid "Perfil"
 msgstr ""
 

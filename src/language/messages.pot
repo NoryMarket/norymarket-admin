@@ -10,8 +10,60 @@ msgstr ""
 msgid "Welcome %{name}"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:15
-msgid "Sections"
+#: src/components/LeftSidebar.vue:30
+msgid "OPERACIONES"
+msgstr ""
+
+#: src/components/LeftSidebar.vue:37
+msgid "Ordenes"
+msgstr ""
+
+#: src/components/LeftSidebar.vue:40
+msgid "Producción"
+msgstr ""
+
+#: src/components/LeftSidebar.vue:44
+msgid "Ordenes de Producción"
+msgstr ""
+
+#: src/components/LeftSidebar.vue:50
+msgid "Recetas (BOM)"
+msgstr ""
+
+#: src/components/LeftSidebar.vue:56
+msgid "Merma"
+msgstr ""
+
+#: src/components/LeftSidebar.vue:65
+msgid "INVENTARIO"
+msgstr ""
+
+#: src/components/LeftSidebar.vue:73
+msgid "Stock"
+msgstr ""
+
+#: src/components/LeftSidebar.vue:82
+msgid "Tipos de Insumo"
+msgstr ""
+
+#: src/components/LeftSidebar.vue:91
+msgid "Pérdidas"
+msgstr ""
+
+#: src/components/LeftSidebar.vue:98
+msgid "CATALOGO"
+msgstr ""
+
+#: src/components/LeftSidebar.vue:106
+msgid "Productos"
+msgstr ""
+
+#: src/components/LeftSidebar.vue:121
+msgid "Configuración"
+msgstr ""
+
+#: src/components/LeftSidebar.vue:132
+msgid "Perfil"
 msgstr ""
 
 #: src/components/LogoutButton.vue:5

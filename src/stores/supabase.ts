@@ -62,5 +62,5 @@ export const useSupabase = defineStore('supabase', () => {
     }
   };
 
-  return { user, ready, init, signIn, signOut };
+  return { user, ready, session, init, signIn, signOut };
 });

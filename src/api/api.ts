@@ -70,12 +70,16 @@ export interface AuthorizationMetaDTO {
 export interface CreateCurrencyTypeDTO {
   name: string;
   shortName: string;
+  symbol: string;
+  decimals: number;
 }
 
 export interface CurrencyTypeDTO {
   id: string;
   name: string;
   shortName: string;
+  symbol: string;
+  decimals: number;
   /** @format date-time */
   updatedAt: string;
 }
@@ -83,6 +87,8 @@ export interface CurrencyTypeDTO {
 export interface UpdateCurrencyTypeDTO {
   name: string;
   shortName: string;
+  symbol: string;
+  decimals: number;
 }
 
 export interface CurrencyExchangeDTO {
@@ -99,6 +105,46 @@ export interface CreateCurrencyExchangeDTO {
 }
 
 export interface DeleteCurrencyExchangesDTO {
+  ids: string[];
+}
+
+export interface ColorDTO {
+  id: string;
+  name: string;
+  color: string;
+}
+
+export interface CreateColorDTO {
+  name: string;
+  color: string;
+}
+
+export interface UpdateColorDTO {
+  name: string;
+  color: string;
+}
+
+export interface DeleteColorDTO {
+  ids: string[];
+}
+
+export interface SizeDTO {
+  id: string;
+  name: string;
+  shortName: string;
+}
+
+export interface CreateSizeDTO {
+  name: string;
+  shortName: string;
+}
+
+export interface UpdateSizeDTO {
+  name: string;
+  shortName: string;
+}
+
+export interface DeleteSizeDTO {
   ids: string[];
 }
 
@@ -619,6 +665,158 @@ export class Api<
       this.request<CurrencyExchangeDTO[], any>({
         path: `/configuration/currencyTypes/exchanges/${currencyTypeId}`,
         method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerGetColors
+     * @request GET:/configuration/colors
+     */
+    configurationControllerGetColors: (params: RequestParams = {}) =>
+      this.request<ColorDTO[], any>({
+        path: `/configuration/colors`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerDeleteColors
+     * @request DELETE:/configuration/colors
+     */
+    configurationControllerDeleteColors: (
+      data: DeleteColorDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<any[], any>({
+        path: `/configuration/colors`,
+        method: "DELETE",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerCreateColor
+     * @request POST:/configuration/color
+     */
+    configurationControllerCreateColor: (
+      data: CreateColorDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<ColorDTO, any>({
+        path: `/configuration/color`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerUpdateColor
+     * @request PATCH:/configuration/color/{colorId}
+     */
+    configurationControllerUpdateColor: (
+      colorId: string,
+      data: UpdateColorDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<ColorDTO, any>({
+        path: `/configuration/color/${colorId}`,
+        method: "PATCH",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerGetSizes
+     * @request GET:/configuration/sizes
+     */
+    configurationControllerGetSizes: (params: RequestParams = {}) =>
+      this.request<SizeDTO[], any>({
+        path: `/configuration/sizes`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerDeleteSizes
+     * @request DELETE:/configuration/sizes
+     */
+    configurationControllerDeleteSizes: (
+      data: DeleteSizeDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<any[], any>({
+        path: `/configuration/sizes`,
+        method: "DELETE",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerCreateSize
+     * @request POST:/configuration/size
+     */
+    configurationControllerCreateSize: (
+      data: CreateSizeDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<SizeDTO, any>({
+        path: `/configuration/size`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerUpdateSize
+     * @request PATCH:/configuration/size/{sizeId}
+     */
+    configurationControllerUpdateSize: (
+      sizeId: string,
+      data: UpdateSizeDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<SizeDTO, any>({
+        path: `/configuration/size/${sizeId}`,
+        method: "PATCH",
+        body: data,
+        type: ContentType.Json,
         format: "json",
         ...params,
       }),

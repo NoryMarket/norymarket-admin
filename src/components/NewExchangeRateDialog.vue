@@ -103,7 +103,7 @@
 <script setup lang="ts">
 import { computed, reactive, watch } from 'vue';
 import { useCurrencies } from 'src/stores/currencies';
-import { CreateCurrencyExchangeDTO } from 'src/api/api';
+// import { CreateCurrencyExchangeDTO } from 'src/api/api';
 
 type Props = {
   modelValue: boolean;
@@ -133,13 +133,13 @@ const currencyOptions = computed(() =>
   })),
 );
 
-const decimalOptions = [
-  { label: '0', value: 0 },
-  { label: '1', value: 1 },
-  { label: '2', value: 2 },
-  { label: '3', value: 3 },
-  { label: '4', value: 4 },
-];
+// const decimalOptions = [
+//   { label: '0', value: 0 },
+//   { label: '1', value: 1 },
+//   { label: '2', value: 2 },
+//   { label: '3', value: 3 },
+//   { label: '4', value: 4 },
+// ];
 
 // QDate locale (meses en español)
 const qDateLocaleEs = {
@@ -230,21 +230,20 @@ function onCancel() {
   model.value = false;
 }
 
-async function onSave() {
+function onSave() {
   if (!isValid.value) return;
 
-  const payload: CreateCurrencyExchangeDTO = {
-    to: form.to,
-    rate: Number(form.rate.replace(',', '.')),
-    effectiveFrom: form.effectiveFrom, // YYYY-MM-DD
-  };
+  // const payload: CreateCurrencyExchangeDTO = {
+  //   factor: Number(form.rate.replace(',', '.')),
+  //   currencyTypeId: //todo
+  // };
 
-  const res = await store.createExchangeRate(payload as any);
-  if (!res?.ok) return;
+  // const res = await store.createExchangeRate(payload as any);
+  // if (!res?.ok) return;
 
-  emit('created');
-  model.value = false;
-  resetForm();
+  // emit('created');
+  // model.value = false;
+  // resetForm();
 }
 
 // Reset cuando cierre

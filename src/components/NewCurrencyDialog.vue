@@ -144,7 +144,7 @@ const form = reactive<CurrencyForm>({
 const symbolPositionOptions = [
   { label: 'Antes del monto $ 100.00', value: 'BEFORE' },
   { label: 'Después del monto 100.00 $', value: 'AFTER' },
-] as const;
+];
 
 const decimalOptions = [
   { label: '0', value: 0 },

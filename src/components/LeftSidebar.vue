@@ -37,7 +37,12 @@
               <q-item-section>{{ $gettext('Ordenes') }}</q-item-section>
             </q-item>
 
-            <q-expansion-item icon="receipt" :label="$gettext('Producción')" default-opened>
+            <q-expansion-item
+              icon="receipt"
+              color="primary"
+              :label="$gettext('Producción')"
+              default-opened
+            >
               <q-list>
                 <IfPermission permission="production">
                   <q-item clickable to="/orders-production">

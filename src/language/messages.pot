@@ -71,6 +71,7 @@ msgid "Sign out"
 msgstr ""
 
 #: src/components/UserForm.vue:6
+#: src/components/UsersTable.vue:26
 msgid "Update user"
 msgstr ""
 
@@ -79,6 +80,7 @@ msgid "Create user"
 msgstr ""
 
 #: src/components/UserForm.vue:10
+#: src/components/UsersTable.vue:101
 #: src/layouts/LoginLayout.vue:14
 msgid "Email"
 msgstr ""
@@ -92,18 +94,27 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: src/components/UserForm.vue:27
+#: src/components/UserForm.vue:26
 msgid "Confirm password"
 msgstr ""
 
-#: src/components/UserForm.vue:33
+#: src/components/UserForm.vue:31
 #: src/components/UsersTable.vue:63
 msgid "Cancel"
 msgstr ""
 
-#: src/components/UserForm.vue:37
+#: src/components/UserForm.vue:35
 #: src/components/UsersTable.vue:66
 msgid "Confirm"
+msgstr ""
+
+#: src/components/UsersTable.vue:3
+#: src/components/UsersTable.vue:22
+msgid "Users"
+msgstr ""
+
+#: src/components/UsersTable.vue:24
+msgid "Create new user"
 msgstr ""
 
 #: src/components/UsersTable.vue:31
@@ -118,6 +129,18 @@ msgid_plural "Are you sure you want to delete %{count} users"
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/components/UsersTable.vue:96
+msgid "Is active"
+msgstr ""
+
+#: src/components/UsersTable.vue:106
+msgid "Rol"
+msgstr ""
+
+#: src/components/UsersTable.vue:112
+msgid "Last sign in at"
+msgstr ""
+
 #: src/layouts/LoginLayout.vue:8
 msgid "Nory Art"
 msgstr ""
@@ -130,10 +153,10 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: src/layouts/LoginLayout.vue:41
+#: src/layouts/LoginLayout.vue:42
 msgid "Invalid credentials"
 msgstr ""
 
-#: src/layouts/LoginLayout.vue:61
+#: src/layouts/LoginLayout.vue:62
 msgid "Authentication failed"
 msgstr ""

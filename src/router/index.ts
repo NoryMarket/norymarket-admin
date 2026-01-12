@@ -53,6 +53,18 @@ export default defineRouter(function (/* { store, ssrContext } */) {
       };
     }
 
+    if (to.path == '/login' && !!supabase.user) {
+      return from.fullPath
+        ? {
+            path: from.fullPath,
+            replace: true,
+          }
+        : {
+            path: '/',
+            replace: true,
+          };
+    }
+
     if (to.meta.permission) {
       const userRole = supabase.user?.role;
       if (!roles.ready) await roles.loadRoles();

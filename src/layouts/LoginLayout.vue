@@ -12,7 +12,7 @@
             }}</label></QCardSection
           ><QCardSection>
             <QInput v-model="email" :label="$gettext('Email')" />
-            <QInput v-model="password" :label="$gettext('Password')" type="password" />
+            <PasswordInput v-model="password" :label="$gettext('Password')" />
           </QCardSection>
           <QCardSection class="text-center fullwidth row">
             <QBtn
@@ -29,6 +29,7 @@
 </template>
 
 <script setup lang="ts">
+import PasswordInput from 'src/components/PasswordInput.vue';
 import { useSupabase } from 'src/stores/supabase';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';

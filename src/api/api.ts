@@ -36,29 +36,70 @@ export interface RoleDTO {
   id: string;
   name: string;
   permissions: (
-    | "users"
-    | "supply-type"
-    | "supply"
-    | "bom"
-    | "orders"
     | "dashboard"
+    | "orders"
+    | "bom"
+    | "production"
+    | "supply"
+    | "supply-type"
+    | "waste"
+    | "products"
     | "enums"
-    | "currency-exchange"
+    | "currency"
+    | "users"
   )[];
 }
 
 export interface AuthorizationMetaDTO {
   permissions: (
-    | "users"
-    | "supply-type"
-    | "supply"
-    | "bom"
-    | "orders"
     | "dashboard"
+    | "orders"
+    | "bom"
+    | "production"
+    | "supply"
+    | "supply-type"
+    | "waste"
+    | "products"
     | "enums"
-    | "currency-exchange"
+    | "currency"
+    | "users"
   )[];
   roles: RoleDTO[];
+}
+
+export interface CreateCurrencyTypeDTO {
+  name: string;
+  shortName: string;
+}
+
+export interface CurrencyTypeDTO {
+  id: string;
+  name: string;
+  shortName: string;
+  /** @format date-time */
+  updatedAt: string;
+}
+
+export interface UpdateCurrencyTypeDTO {
+  name: string;
+  shortName: string;
+}
+
+export interface CurrencyExchangeDTO {
+  id: string;
+  currencyTypeId: string;
+  factor: number;
+  /** @format date-time */
+  createdAt: string;
+}
+
+export interface CreateCurrencyExchangeDTO {
+  currencyTypeId: string;
+  factor: number;
+}
+
+export interface DeleteCurrencyExchangesDTO {
+  ids: string[];
 }
 
 export type QueryParamsType = Record<string | number, any>;
@@ -430,6 +471,153 @@ export class Api<
     authControllerGetAuthorizationMeta: (params: RequestParams = {}) =>
       this.request<AuthorizationMetaDTO, any>({
         path: `/auth/authorization/meta`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+  };
+  configuration = {
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerCreateCurrencyType
+     * @request POST:/configuration/currencyType
+     */
+    configurationControllerCreateCurrencyType: (
+      data: CreateCurrencyTypeDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<CurrencyTypeDTO, any>({
+        path: `/configuration/currencyType`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerUpdateCurrencyType
+     * @request PATCH:/configuration/currencyType/{currencyTypeId}
+     */
+    configurationControllerUpdateCurrencyType: (
+      currencyTypeId: string,
+      data: UpdateCurrencyTypeDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<CurrencyTypeDTO, any>({
+        path: `/configuration/currencyType/${currencyTypeId}`,
+        method: "PATCH",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerDeleteCurrencyType
+     * @request DELETE:/configuration/currencyType/{currencyTypeId}
+     */
+    configurationControllerDeleteCurrencyType: (
+      currencyTypeId: string,
+      params: RequestParams = {},
+    ) =>
+      this.request<void, any>({
+        path: `/configuration/currencyType/${currencyTypeId}`,
+        method: "DELETE",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerGetCurrencyType
+     * @request GET:/configuration/currencyTypes
+     */
+    configurationControllerGetCurrencyType: (params: RequestParams = {}) =>
+      this.request<CurrencyTypeDTO[], any>({
+        path: `/configuration/currencyTypes`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerGetCurrencyExchanges
+     * @request GET:/configuration/currencyTypes/exchanges
+     */
+    configurationControllerGetCurrencyExchanges: (params: RequestParams = {}) =>
+      this.request<CurrencyExchangeDTO[], any>({
+        path: `/configuration/currencyTypes/exchanges`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerCreateCurrencyExchange
+     * @request POST:/configuration/currencyTypes/exchanges
+     */
+    configurationControllerCreateCurrencyExchange: (
+      data: CreateCurrencyExchangeDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<CurrencyExchangeDTO, any>({
+        path: `/configuration/currencyTypes/exchanges`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerDeleteCurrencyExchanges
+     * @request DELETE:/configuration/currencyTypes/exchanges
+     */
+    configurationControllerDeleteCurrencyExchanges: (
+      data: DeleteCurrencyExchangesDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<any[], any>({
+        path: `/configuration/currencyTypes/exchanges`,
+        method: "DELETE",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerGetCurrencyTypeExchangeHistory
+     * @request GET:/configuration/currencyTypes/exchanges/{currencyTypeId}
+     */
+    configurationControllerGetCurrencyTypeExchangeHistory: (
+      currencyTypeId: string,
+      params: RequestParams = {},
+    ) =>
+      this.request<CurrencyExchangeDTO[], any>({
+        path: `/configuration/currencyTypes/exchanges/${currencyTypeId}`,
         method: "GET",
         format: "json",
         ...params,

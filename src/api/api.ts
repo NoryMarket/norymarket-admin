@@ -91,12 +91,18 @@ export interface UpdateCurrencyTypeDTO {
   decimals: number;
 }
 
+export interface MultiDeleteEntityDTO {
+  ids: string[];
+}
+
 export interface CurrencyExchangeDTO {
   id: string;
   currencyTypeId: string;
   factor: number;
   /** @format date-time */
   createdAt: string;
+  /** @format date-time */
+  updatedAt: string;
 }
 
 export interface CreateCurrencyExchangeDTO {
@@ -146,6 +152,58 @@ export interface UpdateSizeDTO {
 
 export interface DeleteSizeDTO {
   ids: string[];
+}
+
+export interface QuantityUnitDto {
+  id: string;
+  allowDecimals: boolean;
+  name: string;
+  description: string;
+  shortName: string;
+}
+
+export interface CreateQuantityUnitDto {
+  allowDecimals: boolean;
+  name: string;
+  description: string;
+  shortName: string;
+}
+
+export interface UpdateQuantityUnitDto {
+  allowDecimals: boolean;
+  name: string;
+  description: string;
+  shortName: string;
+}
+
+export interface AppConfigurationDto {
+  "default-currency": string;
+}
+
+export interface UpdateAppConfigurationDto {
+  "default-currency": string;
+}
+
+export interface CreateSupplyTypeDto {
+  name: string;
+  quantityUnitId: string;
+  sizes: string[];
+  colors: string[];
+}
+
+export interface SupplyTypeDto {
+  id: string;
+  name: string;
+  quantityUnitId: string;
+  sizes: string[];
+  colors: string[];
+}
+
+export interface UpdateSupplyTypeDto {
+  name: string;
+  quantityUnitId: string;
+  sizes: string[];
+  colors: string[];
 }
 
 export type QueryParamsType = Record<string | number, any>;
@@ -547,6 +605,26 @@ export class Api<
      * No description
      *
      * @tags Configuration
+     * @name ConfigurationControllerDeleteCurrencyType
+     * @request DELETE:/configuration/currencyType
+     */
+    configurationControllerDeleteCurrencyType: (
+      data: MultiDeleteEntityDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<any[], any>({
+        path: `/configuration/currencyType`,
+        method: "DELETE",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
      * @name ConfigurationControllerUpdateCurrencyType
      * @request PATCH:/configuration/currencyType/{currencyTypeId}
      */
@@ -561,23 +639,6 @@ export class Api<
         body: data,
         type: ContentType.Json,
         format: "json",
-        ...params,
-      }),
-
-    /**
-     * No description
-     *
-     * @tags Configuration
-     * @name ConfigurationControllerDeleteCurrencyType
-     * @request DELETE:/configuration/currencyType/{currencyTypeId}
-     */
-    configurationControllerDeleteCurrencyType: (
-      currencyTypeId: string,
-      params: RequestParams = {},
-    ) =>
-      this.request<void, any>({
-        path: `/configuration/currencyType/${currencyTypeId}`,
-        method: "DELETE",
         ...params,
       }),
 
@@ -815,6 +876,194 @@ export class Api<
       this.request<SizeDTO, any>({
         path: `/configuration/size/${sizeId}`,
         method: "PATCH",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerGetQuantityUnits
+     * @request GET:/configuration/quantityUnits
+     */
+    configurationControllerGetQuantityUnits: (params: RequestParams = {}) =>
+      this.request<QuantityUnitDto[], any>({
+        path: `/configuration/quantityUnits`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerDeleteQuantityUnits
+     * @request DELETE:/configuration/quantityUnits
+     */
+    configurationControllerDeleteQuantityUnits: (
+      data: MultiDeleteEntityDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<any[], any>({
+        path: `/configuration/quantityUnits`,
+        method: "DELETE",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerCreateQuantityUnit
+     * @request POST:/configuration/quantityUnit
+     */
+    configurationControllerCreateQuantityUnit: (
+      data: CreateQuantityUnitDto,
+      params: RequestParams = {},
+    ) =>
+      this.request<QuantityUnitDto, any>({
+        path: `/configuration/quantityUnit`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerUpdateQuantityUnit
+     * @request PATCH:/configuration/quantityUnit/{quantityUnitId}
+     */
+    configurationControllerUpdateQuantityUnit: (
+      quantityUnitId: string,
+      data: UpdateQuantityUnitDto,
+      params: RequestParams = {},
+    ) =>
+      this.request<QuantityUnitDto, any>({
+        path: `/configuration/quantityUnit/${quantityUnitId}`,
+        method: "PATCH",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerGetAppConfiguration
+     * @request GET:/configuration/appConfiguration
+     */
+    configurationControllerGetAppConfiguration: (params: RequestParams = {}) =>
+      this.request<AppConfigurationDto, any>({
+        path: `/configuration/appConfiguration`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Configuration
+     * @name ConfigurationControllerSetAppConfiguration
+     * @request PUT:/configuration/appConfiguration
+     */
+    configurationControllerSetAppConfiguration: (
+      data: UpdateAppConfigurationDto,
+      params: RequestParams = {},
+    ) =>
+      this.request<void, any>({
+        path: `/configuration/appConfiguration`,
+        method: "PUT",
+        body: data,
+        type: ContentType.Json,
+        ...params,
+      }),
+  };
+  supplyType = {
+    /**
+     * No description
+     *
+     * @tags SupplyType
+     * @name SupplyTypeControllerCreate
+     * @request POST:/supply-type
+     */
+    supplyTypeControllerCreate: (
+      data: CreateSupplyTypeDto,
+      params: RequestParams = {},
+    ) =>
+      this.request<SupplyTypeDto, any>({
+        path: `/supply-type`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags SupplyType
+     * @name SupplyTypeControllerFindAll
+     * @request GET:/supply-type
+     */
+    supplyTypeControllerFindAll: (params: RequestParams = {}) =>
+      this.request<SupplyTypeDto[], any>({
+        path: `/supply-type`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags SupplyType
+     * @name SupplyTypeControllerUpdate
+     * @request PATCH:/supply-type/{id}
+     */
+    supplyTypeControllerUpdate: (
+      id: string,
+      data: UpdateSupplyTypeDto,
+      params: RequestParams = {},
+    ) =>
+      this.request<SupplyTypeDto, any>({
+        path: `/supply-type/${id}`,
+        method: "PATCH",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags SupplyType
+     * @name SupplyTypeControllerRemove
+     * @request DELETE:/supply-type/{id}
+     */
+    supplyTypeControllerRemove: (
+      id: string,
+      data: MultiDeleteEntityDTO,
+      params: RequestParams = {},
+    ) =>
+      this.request<any[], any>({
+        path: `/supply-type/${id}`,
+        method: "DELETE",
         body: data,
         type: ContentType.Json,
         format: "json",

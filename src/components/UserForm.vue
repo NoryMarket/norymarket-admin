@@ -83,6 +83,12 @@ const isValid = (info: Partial<UserInfo>): info is UserInfo =>
   !!info.role &&
   (!!props.user || (!!info.password && (!!props.user || confirmPassword.value == info.password)));
 
+const reset = () => {
+  userInfo.email = '';
+  userInfo.password = '';
+  userInfo.role = '';
+};
+
 const confirm = async () => {
   if (!isValid(userInfo)) return;
 
@@ -103,6 +109,7 @@ const confirm = async () => {
     if (data && !error) {
       users.push(data);
       emit('confirm', data);
+      reset();
     }
   } else {
     const { data, error } = await safeRequest(() =>
@@ -115,6 +122,7 @@ const confirm = async () => {
     if (data && !error) {
       users.update(data);
       emit('confirm', data);
+      reset();
     }
   }
 };

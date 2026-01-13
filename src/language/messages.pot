@@ -10,6 +10,97 @@ msgstr ""
 msgid "Welcome %{name}"
 msgstr ""
 
+#: src/components/CurrencyExchangesTable.vue:13
+msgid "Currencies exchanges"
+msgstr ""
+
+#: src/components/CurrencyExchangesTable.vue:16
+msgid "New currency exchange"
+msgstr ""
+
+#: src/components/CurrencyExchangesTable.vue:19
+msgid "Delete currency exchange"
+msgid_plural "Delete currencies exchanges"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/components/CurrencyExchangesTable.vue:29
+#: src/components/CurrencyTypeDialog.vue:29
+#: src/components/CurrencyTypesTable.vue:37
+#: src/components/UserForm.vue:31
+#: src/components/UsersTable.vue:63
+msgid "Cancel"
+msgstr ""
+
+#: src/components/CurrencyExchangesTable.vue:31
+#: src/components/CurrencyTypeDialog.vue:36
+#: src/components/CurrencyTypesTable.vue:39
+#: src/components/UserForm.vue:35
+#: src/components/UsersTable.vue:66
+msgid "Confirm"
+msgstr ""
+
+#: src/components/CurrencyExchangesTable.vue:50
+msgid "Previous exchanges are saved in the history"
+msgstr ""
+
+#: src/components/CurrencyExchangesTable.vue:79
+msgid "Currency"
+msgstr ""
+
+#: src/components/CurrencyExchangesTable.vue:83
+msgid "Value"
+msgstr ""
+
+#: src/components/CurrencyExchangesTable.vue:86
+msgid "Last update"
+msgstr ""
+
+#: src/components/CurrencyTypeDialog.vue:6
+msgid "Create currency"
+msgstr ""
+
+#: src/components/CurrencyTypeDialog.vue:6
+msgid "Update currency"
+msgstr ""
+
+#: src/components/CurrencyTypeDialog.vue:10
+#: src/components/CurrencyTypesTable.vue:72
+msgid "Name"
+msgstr ""
+
+#: src/components/CurrencyTypeDialog.vue:11
+msgid "Shortname"
+msgstr ""
+
+#: src/components/CurrencyTypeDialog.vue:13
+#: src/components/CurrencyTypesTable.vue:74
+msgid "Symbol"
+msgstr ""
+
+#: src/components/CurrencyTypeDialog.vue:15
+#: src/components/CurrencyTypesTable.vue:75
+msgid "Decimals"
+msgstr ""
+
+#: src/components/CurrencyTypesTable.vue:27
+msgid "Currencies"
+msgstr ""
+
+#: src/components/CurrencyTypesTable.vue:30
+msgid "Create new currency"
+msgstr ""
+
+#: src/components/CurrencyTypesTable.vue:32
+msgid "Delete currency"
+msgid_plural "Delete currencies"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/components/CurrencyTypesTable.vue:73
+msgid "Short name"
+msgstr ""
+
 #: src/components/LeftSidebar.vue:30
 msgid "OPERACIONES"
 msgstr ""
@@ -18,51 +109,51 @@ msgstr ""
 msgid "Ordenes"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:43
+#: src/components/LeftSidebar.vue:46
 msgid "Producción"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:49
+#: src/components/LeftSidebar.vue:51
 msgid "Ordenes de Producción"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:55
+#: src/components/LeftSidebar.vue:57
 msgid "Recetas (BOM)"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:61
+#: src/components/LeftSidebar.vue:63
 msgid "Merma"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:70
+#: src/components/LeftSidebar.vue:72
 msgid "INVENTARIO"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:78
+#: src/components/LeftSidebar.vue:80
 msgid "Stock"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:87
+#: src/components/LeftSidebar.vue:89
 msgid "Tipos de Insumo"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:96
+#: src/components/LeftSidebar.vue:98
 msgid "Pérdidas"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:103
+#: src/components/LeftSidebar.vue:105
 msgid "CATALOGO"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:111
+#: src/components/LeftSidebar.vue:113
 msgid "Productos"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:126
+#: src/components/LeftSidebar.vue:128
 msgid "Configuración"
 msgstr ""
 
-#: src/components/LeftSidebar.vue:137
+#: src/components/LeftSidebar.vue:139
 msgid "Perfil"
 msgstr ""
 
@@ -96,16 +187,6 @@ msgstr ""
 
 #: src/components/UserForm.vue:26
 msgid "Confirm password"
-msgstr ""
-
-#: src/components/UserForm.vue:31
-#: src/components/UsersTable.vue:63
-msgid "Cancel"
-msgstr ""
-
-#: src/components/UserForm.vue:35
-#: src/components/UsersTable.vue:66
-msgid "Confirm"
 msgstr ""
 
 #: src/components/UsersTable.vue:3

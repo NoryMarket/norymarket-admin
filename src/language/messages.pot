@@ -10,21 +10,30 @@ msgstr ""
 msgid "Welcome %{name}"
 msgstr ""
 
-#: src/components/CurrencyExchangesTable.vue:13
-msgid "Currencies exchanges"
+#: src/components/CurrencyExchangesDialog.vue:5
+msgid "Register currency exchange"
 msgstr ""
 
-#: src/components/CurrencyExchangesTable.vue:16
-msgid "New currency exchange"
+#: src/components/CurrencyExchangesDialog.vue:14
+#: src/components/CurrencyExchangesTable.vue:79
+msgid "Currency"
 msgstr ""
 
-#: src/components/CurrencyExchangesTable.vue:19
-msgid "Delete currency exchange"
-msgid_plural "Delete currencies exchanges"
-msgstr[0] ""
-msgstr[1] ""
+#: src/components/CurrencyExchangesDialog.vue:22
+msgid "Reference"
+msgstr ""
 
-#: src/components/CurrencyExchangesTable.vue:29
+#: src/components/CurrencyExchangesDialog.vue:46
+#: src/components/CurrencyExchangesTable.vue:87
+msgid "Value"
+msgstr ""
+
+#: src/components/CurrencyExchangesDialog.vue:49
+msgid "was"
+msgstr ""
+
+#: src/components/CurrencyExchangesDialog.vue:58
+#: src/components/CurrencyExchangesTable.vue:25
 #: src/components/CurrencyTypeDialog.vue:29
 #: src/components/CurrencyTypesTable.vue:37
 #: src/components/UserForm.vue:31
@@ -32,7 +41,8 @@ msgstr[1] ""
 msgid "Cancel"
 msgstr ""
 
-#: src/components/CurrencyExchangesTable.vue:31
+#: src/components/CurrencyExchangesDialog.vue:65
+#: src/components/CurrencyExchangesTable.vue:27
 #: src/components/CurrencyTypeDialog.vue:36
 #: src/components/CurrencyTypesTable.vue:39
 #: src/components/UserForm.vue:35
@@ -40,19 +50,27 @@ msgstr ""
 msgid "Confirm"
 msgstr ""
 
-#: src/components/CurrencyExchangesTable.vue:50
+#: src/components/CurrencyExchangesTable.vue:15
+msgid "Currencies exchanges"
+msgstr ""
+
+#: src/components/CurrencyExchangesTable.vue:18
+msgid "New currency exchange"
+msgstr ""
+
+#: src/components/CurrencyExchangesTable.vue:20
+msgid "Delete currencies exchanges"
+msgstr ""
+
+#: src/components/CurrencyExchangesTable.vue:40
 msgid "Previous exchanges are saved in the history"
 msgstr ""
 
-#: src/components/CurrencyExchangesTable.vue:79
-msgid "Currency"
-msgstr ""
-
-#: src/components/CurrencyExchangesTable.vue:83
-msgid "Value"
-msgstr ""
-
 #: src/components/CurrencyExchangesTable.vue:86
+msgid "Relative value with: \"%{reference}\" "
+msgstr ""
+
+#: src/components/CurrencyExchangesTable.vue:98
 msgid "Last update"
 msgstr ""
 

@@ -87,6 +87,77 @@ export const useCurrencies = defineStore('currencies', () => {
     return ids;
   };
 
+  const getCurrencyTypeExchange = (id: string) =>
+    currencyExchanges.value.find(({ currencyTypeId }) => currencyTypeId === id);
+
+  const toPrecision = (value: number, precision = 2) => {
+    const pow = Math.pow(10, precision);
+
+    return Math.floor(value * pow) / pow;
+  };
+
+  const getRelativeExchangeValue = (from: string, reference: string, factor?: number) => {
+    const referenceCurrency = getCurrencyTypeById(reference);
+    const fromCurrency = getCurrencyTypeExchange(from);
+    const referenceExchange = getCurrencyTypeExchange(reference);
+
+    if (!referenceCurrency || !fromCurrency || !referenceExchange) return;
+
+    const fromCurrencyFactor = factor ?? fromCurrency.factor;
+    const { factor: referenceExchangeFactor } = referenceExchange;
+
+    const relation = fromCurrencyFactor / referenceExchangeFactor;
+
+    return toPrecision(relation, referenceCurrency.decimals);
+  };
+
+  const getRelativeExchangeFactor = (from: string, reference: string, value: number) => {
+    const referenceCurrency = getCurrencyTypeById(reference);
+
+    if (!referenceCurrency) return;
+
+    const fromCurrencyExchange = getCurrencyTypeExchange(from);
+    const referenceExchange = getCurrencyTypeExchange(reference);
+
+    if (!fromCurrencyExchange || !referenceExchange) return 1;
+
+    return value / referenceExchange.factor;
+  };
+
+  const createCurrencyExchange = async (currencyTypeId: string, factor: number) => {
+    const { data, error } = await safeRequest(() =>
+      api.configuration.configurationControllerCreateCurrencyExchange({
+        currencyTypeId,
+        factor,
+      }),
+    );
+
+    if (!data || error) return;
+
+    const currentIndex = currencyExchanges.value.findIndex(
+      (exchange) => currencyTypeId === exchange.currencyTypeId,
+    );
+
+    if (currentIndex === -1) currencyExchanges.value.push(data);
+    else currencyExchanges.value.splice(currentIndex, 1, data);
+
+    return data;
+  };
+
+  const deleteCurrencyExchanges = async (ids: string[]) => {
+    const { data, error } = await safeRequest(() =>
+      api.configuration.configurationControllerDeleteCurrencyExchanges({
+        ids,
+      }),
+    );
+
+    if (!data || error) return;
+
+    await loadCurrencyExchanges();
+
+    return ids;
+  };
+
   return {
     currencyTypes,
     currencyExchanges,
@@ -97,5 +168,10 @@ export const useCurrencies = defineStore('currencies', () => {
     createCurrencyType,
     updateCurrencyType,
     deleteCurrencyTypes,
+    getCurrencyTypeExchange,
+    getRelativeExchangeValue,
+    getRelativeExchangeFactor,
+    createCurrencyExchange,
+    deleteCurrencyExchanges,
   };
 });

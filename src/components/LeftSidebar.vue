@@ -27,14 +27,14 @@
             <q-separator />
           </IfPermission>
 
-          <q-item-label header>{{ $gettext('OPERACIONES') }}</q-item-label>
+          <q-item-label header>{{ $gettext('OPERATIONS') }}</q-item-label>
 
           <IfPermission permission="orders">
             <q-item clickable to="/orders">
               <q-item-section avatar>
                 <q-icon color="primary" name="view_cozy" />
               </q-item-section>
-              <q-item-section>{{ $gettext('Ordenes') }}</q-item-section>
+              <q-item-section>{{ $gettext('Orders') }}</q-item-section>
             </q-item>
 
             <q-expansion-item default-opened>
@@ -43,24 +43,24 @@
                   <q-icon color="primary" name="receipt" />
                 </q-item-section>
 
-                <q-item-section> {{ $gettext('Producción') }} </q-item-section>
+                <q-item-section> {{ $gettext('Production') }} </q-item-section>
               </template>
               <q-list>
                 <IfPermission permission="production">
                   <q-item clickable to="/orders-production">
-                    <q-item-section>{{ $gettext('Ordenes de Producción') }}</q-item-section>
+                    <q-item-section>{{ $gettext('Production orders') }}</q-item-section>
                   </q-item>
                 </IfPermission>
 
                 <IfPermission permission="bom">
                   <q-item clickable to="/bom">
-                    <q-item-section>{{ $gettext('Recetas (BOM)') }}</q-item-section>
+                    <q-item-section>{{ $gettext('Recipes (BOM)') }}</q-item-section>
                   </q-item>
                 </IfPermission>
 
                 <IfPermission permission="waste">
                   <q-item clickable to="/production-waste">
-                    <q-item-section>{{ $gettext('Merma') }}</q-item-section>
+                    <q-item-section>{{ $gettext('Production waste') }}</q-item-section>
                   </q-item>
                 </IfPermission>
               </q-list>
@@ -69,7 +69,7 @@
             <q-separator />
           </IfPermission>
 
-          <q-item-label header>{{ $gettext('INVENTARIO') }}</q-item-label>
+          <q-item-label header>{{ $gettext('INVENTORY') }}</q-item-label>
 
           <IfPermission permission="supply">
             <q-item clickable to="/supply">
@@ -86,7 +86,7 @@
                 <q-icon color="primary" name="view_cozy" />
               </q-item-section>
 
-              <q-item-section>{{ $gettext('Tipos de Insumo') }}</q-item-section>
+              <q-item-section>{{ $gettext('Supply types') }}</q-item-section>
             </q-item>
           </IfPermission>
           <IfPermission permission="waste">
@@ -95,14 +95,14 @@
                 <q-icon color="primary" name="view_cozy" />
               </q-item-section>
 
-              <q-item-section>{{ $gettext('Pérdidas') }}</q-item-section>
+              <q-item-section>{{ $gettext('Waste') }}</q-item-section>
             </q-item>
             <q-separator />
           </IfPermission>
 
           <q-separator />
 
-          <q-item-label header>{{ $gettext('CATALOGO') }}</q-item-label>
+          <q-item-label header>{{ $gettext('CATALOG') }}</q-item-label>
 
           <IfPermission permission="products">
             <q-item clickable to="/products">
@@ -110,7 +110,7 @@
                 <q-icon color="primary" name="view_cozy" />
               </q-item-section>
 
-              <q-item-section>{{ $gettext('Productos') }}</q-item-section>
+              <q-item-section>{{ $gettext('Products') }}</q-item-section>
             </q-item>
           </IfPermission>
         </q-list>
@@ -125,7 +125,7 @@
             <q-item-section avatar>
               <q-icon name="settings" color="primary" />
             </q-item-section>
-            <q-item-section>{{ $gettext('Configuración') }}</q-item-section>
+            <q-item-section>{{ $gettext('Configuration') }}</q-item-section>
           </q-item>
 
           <q-separator class="q-my-sm" />
@@ -136,7 +136,7 @@
                 <q-icon name="person" />
               </q-avatar>
             </q-item-section>
-            <q-item-section>{{ $gettext('Perfil') }}</q-item-section>
+            <q-item-section>{{ $gettext('Profile') }}</q-item-section>
           </q-item>
 
           <!-- <q-item>

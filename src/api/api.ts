@@ -74,6 +74,17 @@ export interface CreateCurrencyTypeDTO {
   decimals: number;
 }
 
+export interface CurrencyExchangeDTO {
+  id: string;
+  currencyTypeId: string;
+  factor: number;
+  /** @format date-time */
+  createdAt: string;
+  /** @format date-time */
+  updatedAt: string;
+  isReadonly: boolean;
+}
+
 export interface CurrencyTypeDTO {
   id: string;
   name: string;
@@ -82,6 +93,7 @@ export interface CurrencyTypeDTO {
   decimals: number;
   /** @format date-time */
   updatedAt: string;
+  exchanges: CurrencyExchangeDTO[];
 }
 
 export interface UpdateCurrencyTypeDTO {
@@ -93,16 +105,6 @@ export interface UpdateCurrencyTypeDTO {
 
 export interface MultiDeleteEntityDTO {
   ids: string[];
-}
-
-export interface CurrencyExchangeDTO {
-  id: string;
-  currencyTypeId: string;
-  factor: number;
-  /** @format date-time */
-  createdAt: string;
-  /** @format date-time */
-  updatedAt: string;
 }
 
 export interface CreateCurrencyExchangeDTO {
@@ -612,7 +614,7 @@ export class Api<
       data: MultiDeleteEntityDTO,
       params: RequestParams = {},
     ) =>
-      this.request<any[], any>({
+      this.request<any[], CurrencyExchangeDTO[]>({
         path: `/configuration/currencyType`,
         method: "DELETE",
         body: data,

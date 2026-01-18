@@ -7,21 +7,17 @@
     hide-pagination
     :rows-per-page-options="[0]"
     class="q-pa-sm table"
+    :selection="confirmDeletion ? 'multiple' : 'none'"
+    v-model:selected="selected"
   >
     <template v-slot:top>
       <div class="column q-gutter-md">
         <label class="q-table__title">{{ $gettext('Currencies exchanges') }}</label>
         <div class="row q-gutter-md">
           <template v-if="!confirmDeletion">
-            <QBtn :label="$gettext('New currency exchange')" @click="exchange = {}" />
+            <QBtn :label="$gettext('New currency exchange')" @click="creating = true" />
             <QBtn
-              :label="
-                $ngettext(
-                  'Delete currency exchange',
-                  'Delete currencies exchanges',
-                  selected.length,
-                )
-              "
+              :label="$gettext('Delete currencies exchanges')"
               @click="confirmDeletion = true"
             />
           </template>
@@ -38,12 +34,6 @@
       </div>
     </template>
 
-    <template #body-cell-actions="props">
-      <q-td :props="props">
-        <QBtn :disable="confirmDeletion" icon="edit" flat dense @click="exchange = props.row" />
-      </q-td>
-    </template>
-
     <template v-slot:bottom>
       <div class="text-caption text-grey-7 q-mt-sm">
         <q-icon name="info" class="q-mr-xs" />
@@ -55,39 +45,60 @@
       </div>
     </template>
   </q-table>
+  <CurrencyExchangesDialog :open="creating" @close="creating = false" />
 </template>
 
 <script setup lang="ts">
 import moment from 'moment';
-import type { CurrencyExchangeDTO } from 'src/api/api';
-// import { useAppConfig } from 'src/stores/appConfig';
+
 import { useCurrencies } from 'src/stores/currencies';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useGettext } from 'vue3-gettext';
+import CurrencyExchangesDialog from './CurrencyExchangesDialog.vue';
+import { useAppConfig } from 'src/stores/appConfig';
+import type { QTableColumn } from 'quasar';
+import type { CurrencyExchangeDTO } from 'src/api/api';
 
 const currencies = useCurrencies();
 const selected = ref([]);
 const { $gettext } = useGettext();
-const exchange = ref<Partial<CurrencyExchangeDTO>>();
+const creating = ref(false);
 const confirmDeletion = ref(false);
-// const appConfig = useAppConfig();
+const appConfig = useAppConfig();
 const deleting = ref(false);
 
-const currencyColumns = ref([
+const reference = computed(() =>
+  appConfig.appConfig['default-currency']
+    ? currencies.getCurrencyTypeById(appConfig.appConfig['default-currency'])
+    : null,
+);
+
+const currencyColumns = computed<QTableColumn<CurrencyExchangeDTO>[]>(() => [
   {
     name: 'currency',
     label: $gettext('Currency'),
     field: 'currencyTypeId',
     format: (id: string) => currencies.getCurrencyTypeById(id)?.shortName ?? id,
   },
-  { name: 'factor', label: $gettext('Value'), field: 'factor' },
+  {
+    name: 'factor',
+    label: reference.value
+      ? $gettext('Relative value with: "%{reference}" ', { reference: reference.value?.shortName })
+      : $gettext('Value'),
+    field: 'factor',
+    format: (factor, row) =>
+      factor && reference.value
+        ? (currencies
+            .getRelativeExchangeValue(row.currencyTypeId, reference.value.id)
+            ?.toString() ?? '')
+        : '',
+  },
   {
     name: 'updatedAt',
     label: $gettext('Last update'),
     field: 'updatedAt',
     format: (date) => (!date ? '' : moment(date).fromNow()),
   },
-  { name: 'actions', label: '', field: 'id' },
 ]);
 
 const cancelDeletion = () => {
@@ -98,7 +109,7 @@ const cancelDeletion = () => {
 const deleteSelected = async () => {
   if (selected.value.length > 0) {
     deleting.value = true;
-    await Promise.resolve(1);
+    await currencies.deleteCurrencyExchanges(selected.value.map(({ id }) => id));
     deleting.value = false;
   }
 

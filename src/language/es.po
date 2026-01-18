@@ -124,31 +124,38 @@ msgid "Short name"
 msgstr "Abreviatura"
 
 #: src/components/LeftSidebar.vue:30
-msgid "OPERACIONES"
+#, fuzzy
+msgid "OPERATIONS"
 msgstr "OPERACIONES"
 
 #: src/components/LeftSidebar.vue:37
-msgid "Ordenes"
+#, fuzzy
+msgid "Orders"
 msgstr "Ordenes"
 
 #: src/components/LeftSidebar.vue:46
-msgid "Producción"
-msgstr "Producción"
+#, fuzzy
+msgid "Production"
+msgstr "Productos"
 
 #: src/components/LeftSidebar.vue:51
-msgid "Ordenes de Producción"
-msgstr "Ordenes de Producción"
+#, fuzzy
+msgid "Production orders"
+msgstr "Ordenes de productos"
 
 #: src/components/LeftSidebar.vue:57
-msgid "Recetas (BOM)"
+#, fuzzy
+msgid "Recipes (BOM)"
 msgstr "Recetas (BOM)"
 
 #: src/components/LeftSidebar.vue:63
-msgid "Merma"
-msgstr "Merma"
+#, fuzzy
+msgid "Production waste"
+msgstr "Merma de producción"
 
 #: src/components/LeftSidebar.vue:72
-msgid "INVENTARIO"
+#, fuzzy
+msgid "INVENTORY"
 msgstr "INVENTARIO"
 
 #: src/components/LeftSidebar.vue:80
@@ -156,27 +163,30 @@ msgid "Stock"
 msgstr "Inventario"
 
 #: src/components/LeftSidebar.vue:89
-msgid "Tipos de Insumo"
-msgstr "Tipos de Insumo"
+msgid "Supply types"
+msgstr "Tipos de suministro"
 
 #: src/components/LeftSidebar.vue:98
-msgid "Pérdidas"
-msgstr "Pérdidas"
+msgid "Waste"
+msgstr "Merma"
 
 #: src/components/LeftSidebar.vue:105
-msgid "CATALOGO"
+#, fuzzy
+msgid "CATALOG"
 msgstr "CATALOGO"
 
 #: src/components/LeftSidebar.vue:113
-msgid "Productos"
+#, fuzzy
+msgid "Products"
 msgstr "Productos"
 
 #: src/components/LeftSidebar.vue:128
-msgid "Configuración"
+#, fuzzy
+msgid "Configuration"
 msgstr "Configuración"
 
 #: src/components/LeftSidebar.vue:139
-msgid "Perfil"
+msgid "Profile"
 msgstr "Perfil"
 
 #: src/components/LogoutButton.vue:5
@@ -262,6 +272,24 @@ msgstr "Credenciales inválidas"
 #: src/layouts/LoginLayout.vue:62
 msgid "Authentication failed"
 msgstr "Fallo en la autenticación"
+
+#~ msgid "Producción"
+#~ msgstr "Producción"
+
+#~ msgid "Ordenes de Producción"
+#~ msgstr "Ordenes de Producción"
+
+#~ msgid "Merma"
+#~ msgstr "Merma"
+
+#~ msgid "Tipos de Insumo"
+#~ msgstr "Tipos de Insumo"
+
+#~ msgid "Pérdidas"
+#~ msgstr "Pérdidas"
+
+#~ msgid "Perfil"
+#~ msgstr "Perfil"
 
 #~ msgid "Sections"
 #~ msgstr "Secciones"

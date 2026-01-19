@@ -10,6 +10,68 @@ msgstr ""
 msgid "Welcome %{name}"
 msgstr ""
 
+#: src/components/ColorsDialog.vue:6
+msgid "Create color"
+msgstr ""
+
+#: src/components/ColorsDialog.vue:6
+msgid "Update color"
+msgstr ""
+
+#: src/components/ColorsDialog.vue:10
+#: src/components/CurrencyTypeDialog.vue:10
+#: src/components/CurrencyTypesTable.vue:72
+msgid "Name"
+msgstr ""
+
+#: src/components/ColorsDialog.vue:11
+#: src/components/ColorsTable.vue:82
+msgid "Color"
+msgstr ""
+
+#: src/components/ColorsDialog.vue:25
+#: src/components/ColorsTable.vue:22
+#: src/components/CurrencyExchangesDialog.vue:58
+#: src/components/CurrencyExchangesTable.vue:25
+#: src/components/CurrencyTypeDialog.vue:29
+#: src/components/CurrencyTypesTable.vue:37
+#: src/components/UserForm.vue:31
+#: src/components/UsersTable.vue:63
+msgid "Cancel"
+msgstr ""
+
+#: src/components/ColorsDialog.vue:32
+#: src/components/ColorsTable.vue:24
+#: src/components/CurrencyExchangesDialog.vue:65
+#: src/components/CurrencyExchangesTable.vue:27
+#: src/components/CurrencyTypeDialog.vue:36
+#: src/components/CurrencyTypesTable.vue:39
+#: src/components/UserForm.vue:35
+#: src/components/UsersTable.vue:66
+msgid "Confirm"
+msgstr ""
+
+#: src/components/ColorsTable.vue:15
+#: src/pages/SettingsColorsPage.vue:4
+msgid "Colors"
+msgstr ""
+
+#: src/components/ColorsTable.vue:18
+msgid "New color"
+msgstr ""
+
+#: src/components/ColorsTable.vue:19
+msgid "Delete colors"
+msgstr ""
+
+#: src/components/ColorsTable.vue:76
+msgid "Color name"
+msgstr ""
+
+#: src/components/ColorsTable.vue:88
+msgid "Used in insumes"
+msgstr ""
+
 #: src/components/CurrencyExchangesDialog.vue:5
 msgid "Register currency exchange"
 msgstr ""
@@ -30,24 +92,6 @@ msgstr ""
 
 #: src/components/CurrencyExchangesDialog.vue:49
 msgid "was"
-msgstr ""
-
-#: src/components/CurrencyExchangesDialog.vue:58
-#: src/components/CurrencyExchangesTable.vue:25
-#: src/components/CurrencyTypeDialog.vue:29
-#: src/components/CurrencyTypesTable.vue:37
-#: src/components/UserForm.vue:31
-#: src/components/UsersTable.vue:63
-msgid "Cancel"
-msgstr ""
-
-#: src/components/CurrencyExchangesDialog.vue:65
-#: src/components/CurrencyExchangesTable.vue:27
-#: src/components/CurrencyTypeDialog.vue:36
-#: src/components/CurrencyTypesTable.vue:39
-#: src/components/UserForm.vue:35
-#: src/components/UsersTable.vue:66
-msgid "Confirm"
 msgstr ""
 
 #: src/components/CurrencyExchangesTable.vue:15
@@ -80,11 +124,6 @@ msgstr ""
 
 #: src/components/CurrencyTypeDialog.vue:6
 msgid "Update currency"
-msgstr ""
-
-#: src/components/CurrencyTypeDialog.vue:10
-#: src/components/CurrencyTypesTable.vue:72
-msgid "Name"
 msgstr ""
 
 #: src/components/CurrencyTypeDialog.vue:11
@@ -258,4 +297,12 @@ msgstr ""
 
 #: src/layouts/LoginLayout.vue:62
 msgid "Authentication failed"
+msgstr ""
+
+#: src/pages/SettingsColorsPage.vue:5
+msgid "Settings"
+msgstr ""
+
+#: src/pages/SettingsColorsPage.vue:11
+msgid "COLORS"
 msgstr ""

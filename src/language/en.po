@@ -11,6 +11,65 @@ msgstr "Admin"
 msgid "Welcome %{name}"
 msgstr "Welcome %{name}"
 
+#: src/components/ColorsDialog.vue:6
+#, fuzzy
+msgid "Create color"
+msgstr "Create user"
+
+#: src/components/ColorsDialog.vue:6
+#, fuzzy
+msgid "Update color"
+msgstr "Update user"
+
+#: src/components/ColorsDialog.vue:10 src/components/CurrencyTypeDialog.vue:10
+#: src/components/CurrencyTypesTable.vue:72
+msgid "Name"
+msgstr "Name"
+
+#: src/components/ColorsDialog.vue:11 src/components/ColorsTable.vue:82
+msgid "Color"
+msgstr ""
+
+#: src/components/ColorsDialog.vue:25 src/components/ColorsTable.vue:22
+#: src/components/CurrencyExchangesDialog.vue:58
+#: src/components/CurrencyExchangesTable.vue:25
+#: src/components/CurrencyTypeDialog.vue:29
+#: src/components/CurrencyTypesTable.vue:37 src/components/UserForm.vue:31
+#: src/components/UsersTable.vue:63
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/components/ColorsDialog.vue:32 src/components/ColorsTable.vue:24
+#: src/components/CurrencyExchangesDialog.vue:65
+#: src/components/CurrencyExchangesTable.vue:27
+#: src/components/CurrencyTypeDialog.vue:36
+#: src/components/CurrencyTypesTable.vue:39 src/components/UserForm.vue:35
+#: src/components/UsersTable.vue:66
+msgid "Confirm"
+msgstr "Confirm"
+
+#: src/components/ColorsTable.vue:15 src/pages/SettingsColorsPage.vue:4
+msgid "Colors"
+msgstr ""
+
+#: src/components/ColorsTable.vue:18
+msgid "New color"
+msgstr ""
+
+#: src/components/ColorsTable.vue:19
+#, fuzzy
+msgid "Delete colors"
+msgstr "Delete user"
+
+#: src/components/ColorsTable.vue:76
+#, fuzzy
+msgid "Color name"
+msgstr "Short name"
+
+#: src/components/ColorsTable.vue:88
+msgid "Used in insumes"
+msgstr ""
+
 #: src/components/CurrencyExchangesDialog.vue:5
 msgid "Register currency exchange"
 msgstr "Register currency exchange"
@@ -32,22 +91,6 @@ msgstr "Value"
 #: src/components/CurrencyExchangesDialog.vue:49
 msgid "was"
 msgstr "was"
-
-#: src/components/CurrencyExchangesDialog.vue:58
-#: src/components/CurrencyExchangesTable.vue:25
-#: src/components/CurrencyTypeDialog.vue:29
-#: src/components/CurrencyTypesTable.vue:37 src/components/UserForm.vue:31
-#: src/components/UsersTable.vue:63
-msgid "Cancel"
-msgstr "Cancel"
-
-#: src/components/CurrencyExchangesDialog.vue:65
-#: src/components/CurrencyExchangesTable.vue:27
-#: src/components/CurrencyTypeDialog.vue:36
-#: src/components/CurrencyTypesTable.vue:39 src/components/UserForm.vue:35
-#: src/components/UsersTable.vue:66
-msgid "Confirm"
-msgstr "Confirm"
 
 #: src/components/CurrencyExchangesTable.vue:15
 msgid "Currencies exchanges"
@@ -83,11 +126,6 @@ msgstr "Create user"
 #, fuzzy
 msgid "Update currency"
 msgstr "Update user"
-
-#: src/components/CurrencyTypeDialog.vue:10
-#: src/components/CurrencyTypesTable.vue:72
-msgid "Name"
-msgstr "Name"
 
 #: src/components/CurrencyTypeDialog.vue:11
 msgid "Shortname"
@@ -262,6 +300,14 @@ msgstr "Invalid credentials"
 #: src/layouts/LoginLayout.vue:62
 msgid "Authentication failed"
 msgstr "Authentication failed"
+
+#: src/pages/SettingsColorsPage.vue:5
+msgid "Settings"
+msgstr ""
+
+#: src/pages/SettingsColorsPage.vue:11
+msgid "COLORS"
+msgstr ""
 
 #~ msgid "Sections"
 #~ msgstr "Sections"

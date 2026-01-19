@@ -53,6 +53,10 @@ export const useCurrencies = defineStore('currencies', () => {
 
     currencyTypes.value.unshift(data);
 
+    if (data.exchanges?.length) {
+      currencyExchanges.value.push(...data.exchanges);
+    }
+
     return data;
   };
 
@@ -119,9 +123,13 @@ export const useCurrencies = defineStore('currencies', () => {
     const fromCurrencyExchange = getCurrencyTypeExchange(from);
     const referenceExchange = getCurrencyTypeExchange(reference);
 
-    if (!fromCurrencyExchange || !referenceExchange) return 1;
+    if (from === reference) return 1;
 
-    return value / referenceExchange.factor;
+    if (!referenceExchange) return;
+
+    if (!fromCurrencyExchange) return value;
+
+    return value * referenceExchange.factor;
   };
 
   const createCurrencyExchange = async (currencyTypeId: string, factor: number) => {
@@ -153,7 +161,7 @@ export const useCurrencies = defineStore('currencies', () => {
 
     if (!data || error) return;
 
-    await loadCurrencyExchanges();
+    await loadCurrencyExchanges(true);
 
     return ids;
   };

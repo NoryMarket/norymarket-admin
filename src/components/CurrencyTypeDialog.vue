@@ -50,6 +50,8 @@ import { useForm } from 'vee-validate';
 import { computed, ref, watch } from 'vue';
 import z from 'zod';
 
+const DEFAULT_EXCHANGE_DECIMALS = 2;
+
 const schema = toTypedSchema(
   z.object({
     name: z.string().min(1),
@@ -61,7 +63,7 @@ const schema = toTypedSchema(
 
 const initialValues: Partial<CurrencyTypeDTO> = {
   name: '',
-  decimals: 0,
+  decimals: DEFAULT_EXCHANGE_DECIMALS,
   shortName: '',
   symbol: '',
 };

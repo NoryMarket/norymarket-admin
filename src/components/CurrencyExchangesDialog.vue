@@ -100,7 +100,7 @@ const factor = computed(() => {
   return currencies.getRelativeExchangeFactor(
     currencyType.value.id,
     currencyTypeReference.value.id,
-    value.value,
+    Number(value.value),
   );
 });
 
@@ -135,6 +135,7 @@ const close = () => {
   currencyType.value = undefined;
   currencyTypeReference.value = undefined;
   previousValue.value = undefined;
+  value.value = undefined;
   emit('close');
 };
 

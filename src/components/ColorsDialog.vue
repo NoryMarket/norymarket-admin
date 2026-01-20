@@ -24,14 +24,14 @@
           color="negative"
           :label="$gettext('Cancel')"
           @click="close"
-          :disable="procesing"
+          :disable="processing"
         />
         <QBtn
-          :disable="!meta.valid || procesing || (!creating && !meta.dirty)"
+          :disable="!meta.valid || processing || (!creating && !meta.dirty)"
           color="secondary"
           :label="$gettext('Confirm')"
           @click="submit"
-          :loading="procesing"
+          :loading="processing"
         />
       </QCardActions>
     </QCard>
@@ -65,7 +65,7 @@ const { setValues, meta, defineField, resetForm } = useForm({
 
 const [name] = defineField('name');
 const [color] = defineField('color');
-const procesing = ref(false);
+const processing = ref(false);
 
 const colors = useColors();
 
@@ -103,24 +103,24 @@ const submit = async () => {
   if (!meta.value.valid) return;
 
   if (creating.value) {
-    procesing.value = true;
+    processing.value = true;
     const result = await colors.createColor({
       name: name.value as string,
       color: color.value as string,
     });
-    procesing.value = false;
+    processing.value = false;
     if (result) {
       resetForm();
       emit('confirm', result);
     }
   } else {
     if (!props.data) return;
-    procesing.value = true;
+    processing.value = true;
     const result = await colors.updateColor(props.data.id as string, {
       name: name.value as string,
       color: color.value as string,
     });
-    procesing.value = false;
+    processing.value = false;
     if (result) {
       resetForm();
       emit('confirm', result);

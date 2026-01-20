@@ -8,7 +8,6 @@
     />
     <!-- Colors Section -->
     <q-section class="q-mt-lg">
-      <div class="text-h6 q-mb-xs">{{ $gettext('COLORS') }}</div>
       <ColorsTable />
     </q-section>
   </q-page>

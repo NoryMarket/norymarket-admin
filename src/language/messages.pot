@@ -82,7 +82,7 @@ msgstr ""
 #: src/components/ColorsTable.vue:88
 #: src/components/QuantityUnitTable.vue:105
 #: src/components/SizesTable.vue:88
-msgid "Used in insumes"
+msgid "Used in products"
 msgstr ""
 
 #: src/components/CurrencyExchangesDialog.vue:5

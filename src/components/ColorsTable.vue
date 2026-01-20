@@ -85,7 +85,7 @@ const colorColumns = computed<QTableColumn<ColorTableRow>[]>(() => [
   },
   {
     name: 'usedInProducts',
-    label: $gettext('Used in insumes'),
+    label: $gettext('Used in products'),
     field: 'usedInProducts',
     format: (usedInProducts: number) => String(usedInProducts ?? 0),
   },

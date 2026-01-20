@@ -102,7 +102,7 @@ const quantityUnitColumns = computed<QTableColumn<QuantityUnitTableRow>[]>(() =>
   },
   {
     name: 'usedInProducts',
-    label: $gettext('Used in insumes'),
+    label: $gettext('Used in products'),
     field: 'usedInProducts',
     format: (usedInProducts: number) => String(usedInProducts ?? 0),
   },

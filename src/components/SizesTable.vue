@@ -85,7 +85,7 @@ const sizeColumns = computed<QTableColumn<SizeTableRow>[]>(() => [
   },
   {
     name: 'usedInProducts',
-    label: $gettext('Used in insumes'),
+    label: $gettext('Used in products'),
     field: 'usedInProducts',
     format: (usedInProducts: number) => String(usedInProducts ?? 0),
   },
@@ -97,7 +97,7 @@ const cancelDeletion = () => {
   confirmDeletion.value = false;
 };
 
-//TODO: Solo poder borrar sizes q no esten siendo usandos en ningun insumo
+//TODO: Solo poder borrar sizes q no esten siendo usandos en ningun producto
 const deleteSelected = async () => {
   if (selected.value.length > 0) {
     deleting.value = true;

@@ -21,6 +21,9 @@ msgstr ""
 #: src/components/ColorsDialog.vue:10
 #: src/components/CurrencyTypeDialog.vue:10
 #: src/components/CurrencyTypesTable.vue:72
+#: src/components/QuantityUnitDialog.vue:10
+#: src/components/QuantityUnitTable.vue:81
+#: src/components/SizesDialog.vue:10
 msgid "Name"
 msgstr ""
 
@@ -35,6 +38,10 @@ msgstr ""
 #: src/components/CurrencyExchangesTable.vue:25
 #: src/components/CurrencyTypeDialog.vue:29
 #: src/components/CurrencyTypesTable.vue:37
+#: src/components/QuantityUnitDialog.vue:22
+#: src/components/QuantityUnitTable.vue:22
+#: src/components/SizesDialog.vue:17
+#: src/components/SizesTable.vue:22
 #: src/components/UserForm.vue:31
 #: src/components/UsersTable.vue:63
 msgid "Cancel"
@@ -46,6 +53,10 @@ msgstr ""
 #: src/components/CurrencyExchangesTable.vue:27
 #: src/components/CurrencyTypeDialog.vue:36
 #: src/components/CurrencyTypesTable.vue:39
+#: src/components/QuantityUnitDialog.vue:29
+#: src/components/QuantityUnitTable.vue:24
+#: src/components/SizesDialog.vue:24
+#: src/components/SizesTable.vue:24
 #: src/components/UserForm.vue:35
 #: src/components/UsersTable.vue:66
 msgid "Confirm"
@@ -69,6 +80,8 @@ msgid "Color name"
 msgstr ""
 
 #: src/components/ColorsTable.vue:88
+#: src/components/QuantityUnitTable.vue:105
+#: src/components/SizesTable.vue:88
 msgid "Used in insumes"
 msgstr ""
 
@@ -132,6 +145,7 @@ msgstr ""
 
 #: src/components/CurrencyTypeDialog.vue:13
 #: src/components/CurrencyTypesTable.vue:74
+#: src/components/QuantityUnitTable.vue:87
 msgid "Symbol"
 msgstr ""
 
@@ -218,6 +232,79 @@ msgstr ""
 msgid "Sign out"
 msgstr ""
 
+#: src/components/QuantityUnitDialog.vue:6
+msgid "Create quantity unit"
+msgstr ""
+
+#: src/components/QuantityUnitDialog.vue:6
+msgid "Update quantity unit"
+msgstr ""
+
+#: src/components/QuantityUnitDialog.vue:11
+msgid "Abbreviation / Symbol"
+msgstr ""
+
+#: src/components/QuantityUnitDialog.vue:12
+#: src/components/QuantityUnitTable.vue:93
+#: src/components/SizesDialog.vue:11
+#: src/components/SizesTable.vue:82
+msgid "Description"
+msgstr ""
+
+#: src/components/QuantityUnitDialog.vue:14
+msgid "Allow Decimals (quantities like 0.5)"
+msgstr ""
+
+#: src/components/QuantityUnitTable.vue:15
+#: src/pages/SettingsQuantityUnitPage.vue:4
+msgid "Quantity Units"
+msgstr ""
+
+#: src/components/QuantityUnitTable.vue:18
+msgid "New quantity unit"
+msgstr ""
+
+#: src/components/QuantityUnitTable.vue:19
+msgid "Delete quantity units"
+msgstr ""
+
+#: src/components/QuantityUnitTable.vue:99
+msgid "Allow decimals"
+msgstr ""
+
+#: src/components/QuantityUnitTable.vue:101
+msgid "Yes"
+msgstr ""
+
+#: src/components/QuantityUnitTable.vue:101
+msgid "No"
+msgstr ""
+
+#: src/components/SizesDialog.vue:6
+msgid "Create size"
+msgstr ""
+
+#: src/components/SizesDialog.vue:6
+msgid "Update size"
+msgstr ""
+
+#: src/components/SizesTable.vue:15
+#: src/pages/SettingsSizesPage.vue:4
+msgid "Sizes"
+msgstr ""
+
+#: src/components/SizesTable.vue:18
+msgid "New size"
+msgstr ""
+
+#: src/components/SizesTable.vue:19
+msgid "Delete sizes"
+msgstr ""
+
+#: src/components/SizesTable.vue:76
+msgid "Size name"
+msgstr ""
+
 #: src/components/UserForm.vue:6
 #: src/components/UsersTable.vue:26
 msgid "Update user"
@@ -300,9 +387,7 @@ msgid "Authentication failed"
 msgstr ""
 
 #: src/pages/SettingsColorsPage.vue:5
+#: src/pages/SettingsQuantityUnitPage.vue:5
+#: src/pages/SettingsSizesPage.vue:5
 msgid "Settings"
-msgstr ""
-
-#: src/pages/SettingsColorsPage.vue:11
-msgid "COLORS"
 msgstr ""
